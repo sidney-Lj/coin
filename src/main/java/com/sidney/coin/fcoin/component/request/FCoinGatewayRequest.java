@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public abstract class FcoinGatewayRequest {
+public abstract class FCoinGatewayRequest {
     /**
      * 平台用户编号
      */

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class FcoinResponse {
+public class FCoinResponse {
     /**
      * 调用状态（0 为调用成功、1 为失败，返回 1 时请看【调用失败错误码】及错误码描述）
      */

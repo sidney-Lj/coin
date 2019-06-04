@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum FcoinUploadServiceNameEnum {
+public enum FCoinGatewayServiceNameEnum {
 
-    UPLOAD("资料上传");
+    RECHARGE("充值");
 
     private String desc;
 

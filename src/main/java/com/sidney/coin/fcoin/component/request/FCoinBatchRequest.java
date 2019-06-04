@@ -6,24 +6,17 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
-public class FcoinDownloadRequest {
+public abstract class FCoinBatchRequest {
     /**
-     * 对账文件日期
+     * 批次号
      */
-    @JSONField(format = "yyyyMMdd")
+    @Setter
     @Getter
-    protected Date fileDate;
-
+    protected String batchNo;
     /**
      * 时间戳参数
      */
     @JSONField(format = "yyyyMMddHHmmss")
+    @Getter
     protected Date timestamp = new Date();
-
-    /**
-     * 平台编号
-     */
-    protected String platformNo;
 }

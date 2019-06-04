@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum FcoinServiceNameEnum {
+public enum FCoinServiceNameEnum {
     SERVER_TIME("查询服务器时间"),
     CURRENCIES("查询可用币种"),
     SYMBOLS("查询可用交易对"),

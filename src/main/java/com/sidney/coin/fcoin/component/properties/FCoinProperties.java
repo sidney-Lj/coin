@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @ConfigurationProperties("fcoin")
 @Setter
 @Getter
-public class FcoinProperties extends RSASignatureProperties {
+public class FCoinProperties extends RSASignatureProperties {
     private String platformNo;  //平台编号
     private int keySerial = 1;
     private String directUrl;   //直连接口地址

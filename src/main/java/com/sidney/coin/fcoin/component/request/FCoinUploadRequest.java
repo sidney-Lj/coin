@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-public abstract class FcoinUploadRequest {
+public abstract class FCoinUploadRequest {
 
     /**
      * 请求流水号

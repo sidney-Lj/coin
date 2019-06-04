@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Setter
 @Getter
-public class FcoinGatewayResponse implements Serializable {
+public class FCoinGatewayResponse implements Serializable {
     private String action;
     private Map<String, Object> params;
 }
