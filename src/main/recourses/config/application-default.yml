@@ -20,7 +20,7 @@ fcoin:
   key-serial: 2
   platform-no: "6000003630"
   direct-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/service"
-  gateway-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/gateway"
+  public-url: "https://api.fcoin.com/v2/public/"
   download-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/download"
   upload-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/upload"
   notify-url: "https://test-civet-api.niiwoo.com/lanmao/notify"

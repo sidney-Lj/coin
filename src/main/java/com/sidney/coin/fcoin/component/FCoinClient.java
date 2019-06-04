@@ -7,13 +7,13 @@ import com.alibaba.fastjson.serializer.ValueFilter;
 import com.sidney.coin.component.AsyncHttpClients;
 import com.sidney.coin.fcoin.component.properties.FCoinProperties;
 import com.sidney.coin.fcoin.component.enums.FCoinGatewayServiceNameEnum;
-import com.sidney.coin.fcoin.component.enums.FCoinServiceNameEnum;
+import com.sidney.coin.fcoin.component.enums.FCoinPublicServiceNameEnum;
 import com.sidney.coin.fcoin.component.enums.FCoinUploadServiceNameEnum;
 import com.sidney.coin.fcoin.component.exception.FcoinException;
 import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
 import com.sidney.coin.fcoin.component.request.*;
 import com.sidney.coin.fcoin.component.response.FCoinGatewayResponse;
-import com.sidney.coin.fcoin.component.response.FCoinResponse;
+import com.sidney.coin.fcoin.component.response.FCoinGetResponse;
 import com.sidney.coin.fcoin.component.serializer.Number2StringFilter;
 import com.sidney.coin.utils.FormUploadFile;
 import org.apache.commons.io.FileUtils;
@@ -49,27 +49,57 @@ public class FCoinClient {
         this.redisTemplate = redisTemplate;
     }
 
-    <T extends FCoinResponse> CompletableFuture<T> post(FCoinServiceNameEnum serviceName, FCoinDirectRequest request, final Class<T> responseClass) {
+    <T extends FCoinGetResponse> CompletableFuture<T> get(FCoinPublicServiceNameEnum serviceName, final Class<T> responseClass) {
+        String url = properties.getPublicUrl() + serviceName.getUrl();
+        final CompletableFuture<T> future = new CompletableFuture<>();
+        asyncHttpClients.getRequest(url, new FutureCallback<HttpResponse>() {
+            @Override
+            public void completed(HttpResponse result) {
+                try {
+                    JSONObject json = _responseForJSON(result);
+                    T t = json.toJavaObject(responseClass);
+                    future.complete(t);
+                } catch (Exception e) {
+                    logger.error("parse fcoin response error", e);
+                    future.completeExceptionally(e);
+                }
+            }
+
+            @Override
+            public void failed(Exception ex) {
+                logger.error("request fcoin error", ex);
+                future.completeExceptionally(ex);
+            }
+
+            @Override
+            public void cancelled() {
+                future.cancel(true);
+            }
+        });
+        return future;
+    }
+
+    <T extends FCoinGetResponse> CompletableFuture<T> post(FCoinPublicServiceNameEnum serviceName, FCoinDirectRequest request, final Class<T> responseClass) {
         Map<String, Object> req = buildRequest(serviceName.name(), JSON.toJSONString(request, SerializerFeature.UseSingleQuotes));
         return doPost(request.getRequestNo(), req, responseClass);
     }
 
-    <T extends FCoinResponse> CompletableFuture<T> batchPost(FCoinServiceNameEnum serviceName, FCoinBatchRequest batchRequest, final Class<T> responseClass) {
+    <T extends FCoinGetResponse> CompletableFuture<T> batchPost(FCoinPublicServiceNameEnum serviceName, FCoinBatchRequest batchRequest, final Class<T> responseClass) {
         Map<String, Object> req = buildRequest(serviceName.name(), JSON.toJSONString(batchRequest, SerializerFeature.UseSingleQuotes));
         return doPost(batchRequest.getBatchNo(), req, responseClass);
     }
 
-    public CompletableFuture<File> download(FCoinServiceNameEnum serviceName, FCoinDownloadRequest request, String tempFile) {
+    public CompletableFuture<File> download(FCoinPublicServiceNameEnum serviceName, FCoinDownloadRequest request, String tempFile) {
         Map<String, Object> req = buildRequest(serviceName.name(), JSON.toJSONString(request, SerializerFeature.UseSingleQuotes));
         return doDownload(req, tempFile);
     }
 
-    <T extends FCoinResponse> CompletableFuture<T> upload(FCoinUploadServiceNameEnum serviceName, FCoinUploadRequest request, List<FormUploadFile> fileList, final Class<T> responseClass) {
+    <T extends FCoinGetResponse> CompletableFuture<T> upload(FCoinUploadServiceNameEnum serviceName, FCoinUploadRequest request, List<FormUploadFile> fileList, final Class<T> responseClass) {
         Map<String, Object> params = buildRequest(serviceName.name(), JSON.toJSONString(request, SerializerFeature.UseSingleQuotes));
         return doUpload(request.getRequestNo(), params, fileList, responseClass);
     }
 
-    private <T extends FCoinResponse> CompletableFuture<T> doUpload(final String reqNo, Map<String, Object> params, List<FormUploadFile> fileList, Class<T> responseClass) {
+    private <T extends FCoinGetResponse> CompletableFuture<T> doUpload(final String reqNo, Map<String, Object> params, List<FormUploadFile> fileList, Class<T> responseClass) {
         logger.info("doUpload fcoin request====>requestNo/batchNo={},params={}", reqNo, params);
         final CompletableFuture<T> future = new CompletableFuture<>();
 
@@ -136,21 +166,7 @@ public class FCoinClient {
         return future;
     }
 
-    public FCoinGatewayResponse buildPageParams(FCoinGatewayServiceNameEnum serviceName, FCoinGatewayRequest request) {
-        //统一设置前端页面回跳地址
-        if (!StringUtils.isEmpty(request.getNiiwooRedirectUrl())) {
-            redisTemplate.opsForValue().set(request.getRequestNo(), request.getNiiwooRedirectUrl(), 30, TimeUnit.MINUTES);
-        }
-        //服务端接受浏览器回跳地址
-        request.setRedirectUrl(properties.getCallbackUrl());
-        FCoinGatewayResponse response = new FCoinGatewayResponse();
-        response.setAction(properties.getGatewayUrl());
-        Map<String, Object> req = buildRequest(serviceName.name(), JSON.toJSONString(request, filter, SerializerFeature.UseSingleQuotes));
-        response.setParams(req);
-        return response;
-    }
-
-    private <T extends FCoinResponse> CompletableFuture<T> doPost(final String reqNo, Map<String, Object> req, Class<T> responseClass) {
+    private <T extends FCoinGetResponse> CompletableFuture<T> doPost(final String reqNo, Map<String, Object> req, Class<T> responseClass) {
         logger.info("fcoin request====>requestNo/batchNo={},params={}", reqNo, req);
         final CompletableFuture<T> future = new CompletableFuture<>();
         asyncHttpClients.formPost(properties.getDirectUrl(), req, new FutureCallback<HttpResponse>() {

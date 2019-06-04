@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ServerTimeResponse extends FCoinResponse {
+public class ServerTimeResponse extends FCoinGetResponse {
     /**
-     * 原换卡请求流水号
+     * 服务器时间
      */
-    private String originalRequestNo;
+    private Long data;
 }

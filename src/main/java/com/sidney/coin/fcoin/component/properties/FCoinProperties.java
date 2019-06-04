@@ -13,7 +13,7 @@ public class FCoinProperties extends RSASignatureProperties {
     private String platformNo;  //平台编号
     private int keySerial = 1;
     private String directUrl;   //直连接口地址
-    private String gatewayUrl;  //网关接口地址
+    private String publicUrl;  //公开接口地址
     private String downloadUrl; //下载(对账文件)地址
     private String uploadUrl; //文件上传地址
     private String notifyUrl; //后台通知地址
