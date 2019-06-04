@@ -1,9 +1,9 @@
 package com.sidney.coin.fcoin.component;
 
 import com.google.common.base.Preconditions;
-import com.sidney.coin.fcoin.component.exception.InitialKeyException;
-import com.sidney.coin.fcoin.component.exception.SignatureFailedException;
-import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
+import com.sidney.coin.exception.InitialKeyException;
+import com.sidney.coin.exception.SignatureFailedException;
+import com.sidney.coin.exception.VerifyFailedException;
 import com.sidney.coin.properties.KeyPrefer;
 import com.sidney.coin.properties.RSASignatureProperties;
 import org.apache.commons.codec.binary.Base64;

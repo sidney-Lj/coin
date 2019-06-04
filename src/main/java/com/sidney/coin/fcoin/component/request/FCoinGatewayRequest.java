@@ -1,7 +1,7 @@
 package com.sidney.coin.fcoin.component.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.sidney.coin.fcoin.component.enums.UserDeviceEnum;
+import com.sidney.coin.enums.UserDeviceEnum;
 import lombok.Getter;
 import lombok.Setter;
 

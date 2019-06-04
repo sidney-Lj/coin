@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.exception;
+package com.sidney.coin.exception;
 
 public class InitialKeyException extends RuntimeException {
 

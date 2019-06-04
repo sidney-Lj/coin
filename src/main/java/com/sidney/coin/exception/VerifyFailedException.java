@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.exception;
+package com.sidney.coin.exception;
 
 public class VerifyFailedException extends RuntimeException {
     private static final long serialVersionUID = -3760524526493913977L;
