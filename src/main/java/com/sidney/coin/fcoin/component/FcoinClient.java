@@ -11,7 +11,6 @@ import com.sidney.coin.fcoin.component.enums.FcoinUploadServiceNameEnum;
 import com.sidney.coin.fcoin.component.exception.FcoinException;
 import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
 import com.sidney.coin.fcoin.component.request.*;
-import com.sidney.fcoin.component.request.*;
 import com.sidney.coin.fcoin.component.response.FcoinGatewayResponse;
 import com.sidney.coin.fcoin.component.response.FcoinResponse;
 import com.sidney.coin.fcoin.component.serializer.Number2StringFilter;

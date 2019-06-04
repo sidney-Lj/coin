@@ -13,4 +13,4 @@ server:
     accesslog:
       enabled: true
       pattern: "%h %l %u %{time,[dd/MMM/yyyy:HH:mm:ss.SSS Z]} \"%r\" %s %b \"%{i,Referer}\" \"%{i,User-Agent}\""
-      dir: "/var/fcoin/access-logs/fcoin"
+      dir: "/var/coin/access-logs/fcoin"
