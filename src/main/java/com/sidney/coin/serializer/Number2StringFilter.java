@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.serializer;
+package com.sidney.coin.serializer;
 
 import com.alibaba.fastjson.serializer.ValueFilter;
 

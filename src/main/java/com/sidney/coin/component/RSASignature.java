@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component;
+package com.sidney.coin.component;
 
 import com.google.common.base.Preconditions;
 import com.sidney.coin.exception.InitialKeyException;
