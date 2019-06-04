@@ -1,1 +1,1 @@
-# fcoin
+# coin
