@@ -1,13 +1,13 @@
-package com.sidney.coin.fcoin.component;
+package com.sidney.coin.component;
 
 import brave.http.HttpTracing;
 import brave.httpasyncclient.TracingHttpAsyncClientBuilder;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
-import com.sidney.coin.fcoin.component.utils.FacePlusMultipartEntityBuilder;
-import com.sidney.coin.fcoin.component.properties.AsyncHttpClientProperties;
-import com.sidney.coin.fcoin.component.utils.FormUploadFile;
+import com.sidney.coin.properties.AsyncHttpClientProperties;
+import com.sidney.coin.utils.FacePlusMultipartEntityBuilder;
+import com.sidney.coin.utils.FormUploadFile;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;

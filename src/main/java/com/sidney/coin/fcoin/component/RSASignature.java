@@ -1,11 +1,11 @@
 package com.sidney.coin.fcoin.component;
 
 import com.google.common.base.Preconditions;
-import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
-import com.sidney.coin.fcoin.component.properties.KeyPrefer;
-import com.sidney.coin.fcoin.component.properties.RSASignatureProperties;
 import com.sidney.coin.fcoin.component.exception.InitialKeyException;
 import com.sidney.coin.fcoin.component.exception.SignatureFailedException;
+import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
+import com.sidney.coin.properties.KeyPrefer;
+import com.sidney.coin.properties.RSASignatureProperties;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.DefaultResourceLoader;

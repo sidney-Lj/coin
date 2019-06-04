@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.utils;
+package com.sidney.coin.utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;

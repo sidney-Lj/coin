@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.properties;
+package com.sidney.coin.properties;
 
 import lombok.Getter;
 import lombok.Setter;

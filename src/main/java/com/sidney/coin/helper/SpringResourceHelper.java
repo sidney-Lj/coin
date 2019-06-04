@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.utils;
+package com.sidney.coin.helper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.FileSystemResource;

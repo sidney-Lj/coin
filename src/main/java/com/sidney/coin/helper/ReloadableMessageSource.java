@@ -1,13 +1,11 @@
-package com.sidney.coin.fcoin.component.utils;
+package com.sidney.coin.helper;
 
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by zhangwanli on 2017/5/20.
- */
+
 public class ReloadableMessageSource extends ReloadableResourceBundleMessageSource {
 
     private static final String MESSAGE_DIR = "/message/";  //消息资源文件存放目录

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.ValueFilter;
+import com.sidney.coin.component.AsyncHttpClients;
 import com.sidney.coin.fcoin.component.properties.FCoinProperties;
 import com.sidney.coin.fcoin.component.enums.FCoinGatewayServiceNameEnum;
 import com.sidney.coin.fcoin.component.enums.FCoinServiceNameEnum;
@@ -14,7 +15,7 @@ import com.sidney.coin.fcoin.component.request.*;
 import com.sidney.coin.fcoin.component.response.FCoinGatewayResponse;
 import com.sidney.coin.fcoin.component.response.FCoinResponse;
 import com.sidney.coin.fcoin.component.serializer.Number2StringFilter;
-import com.sidney.coin.fcoin.component.utils.FormUploadFile;
+import com.sidney.coin.utils.FormUploadFile;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
@@ -69,7 +70,7 @@ public class FCoinClient {
     }
 
     private <T extends FCoinResponse> CompletableFuture<T> doUpload(final String reqNo, Map<String, Object> params, List<FormUploadFile> fileList, Class<T> responseClass) {
-        logger.info("doUpload Fcoin request====>requestNo/batchNo={},params={}", reqNo, params);
+        logger.info("doUpload fcoin request====>requestNo/batchNo={},params={}", reqNo, params);
         final CompletableFuture<T> future = new CompletableFuture<>();
 
         asyncHttpClients.fileUploadPost2(properties.getUploadUrl(), params, fileList, new FutureCallback<HttpResponse>() {
@@ -80,14 +81,14 @@ public class FCoinClient {
                     T t = json.toJavaObject(responseClass);
                     future.complete(t);
                 } catch (Exception e) {
-                    logger.error("doUpload parse FCoin response error,requestNo/batchNo={}", reqNo, e);
+                    logger.error("doUpload parse fcoin response error,requestNo/batchNo={}", reqNo, e);
                     future.completeExceptionally(e);
                 }
             }
 
             @Override
             public void failed(Exception ex) {
-                logger.error("doUpload request FCoin error,requestNo/batchNo={}", reqNo, ex);
+                logger.error("doUpload request fcoin error,requestNo/batchNo={}", reqNo, ex);
                 future.completeExceptionally(ex);
             }
 
@@ -150,7 +151,7 @@ public class FCoinClient {
     }
 
     private <T extends FCoinResponse> CompletableFuture<T> doPost(final String reqNo, Map<String, Object> req, Class<T> responseClass) {
-        logger.info("FCoin request====>requestNo/batchNo={},params={}", reqNo, req);
+        logger.info("fcoin request====>requestNo/batchNo={},params={}", reqNo, req);
         final CompletableFuture<T> future = new CompletableFuture<>();
         asyncHttpClients.formPost(properties.getDirectUrl(), req, new FutureCallback<HttpResponse>() {
             @Override
@@ -160,14 +161,14 @@ public class FCoinClient {
                     T t = json.toJavaObject(responseClass);
                     future.complete(t);
                 } catch (Exception e) {
-                    logger.error("parse FCoin response error,requestNo/batchNo={}", reqNo, e);
+                    logger.error("parse fcoin response error,requestNo/batchNo={}", reqNo, e);
                     future.completeExceptionally(e);
                 }
             }
 
             @Override
             public void failed(Exception ex) {
-                logger.error("request FCoin error,requestNo/batchNo={}", reqNo, ex);
+                logger.error("request fcoin error,requestNo/batchNo={}", reqNo, ex);
                 future.completeExceptionally(ex);
             }
 
@@ -199,7 +200,7 @@ public class FCoinClient {
 
     private JSONObject _responseForJSON(HttpResponse response) {
         String plain = asyncHttpClients.responseForPlain("utf-8", response);
-        logger.info("FCoin response<====result={}", plain);
+        logger.info("fcoin response<====result={}", plain);
         Header[] signs = response.getHeaders("sign");
         JSONObject json = JSON.parseObject(plain);
         //        check(json);
@@ -214,7 +215,7 @@ public class FCoinClient {
         if (!"0".equals(res.getString("code")) || !"SUCCESS".equals(res.getString("status"))) {
             String errorCode = res.getString("errorCode");
             String errorMessage = res.getString("errorMessage");
-            throw new FcoinException("FCoin" + errorCode, errorMessage);
+            throw new FcoinException("fcoin" + errorCode, errorMessage);
         }
     }
 
@@ -225,11 +226,11 @@ public class FCoinClient {
             signed = header.getValue();
         }
         if (signed == null) {
-            throw new VerifyFailedException("verify FCoin response error: sign is null");
+            throw new VerifyFailedException("verify fcoin response error: sign is null");
         }
         boolean verify = rsaSignature.verify(signed, unsigned);
         if (!verify) {
-            throw new VerifyFailedException("verify FCoin response error, signed = " + signed + ", unsigned = " + unsigned);
+            throw new VerifyFailedException("verify fcoin response error, signed = " + signed + ", unsigned = " + unsigned);
         }
     }
 

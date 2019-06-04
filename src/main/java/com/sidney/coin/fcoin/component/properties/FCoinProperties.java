@@ -1,5 +1,6 @@
 package com.sidney.coin.fcoin.component.properties;
 
+import com.sidney.coin.properties.RSASignatureProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,18 +18,5 @@ public class FCoinProperties extends RSASignatureProperties {
     private String uploadUrl; //文件上传地址
     private String notifyUrl; //后台通知地址
     private String callbackUrl; //服务端浏览器回调接受地址
-    @NestedConfigurationProperty
-    private NiiWooAccount niiWooAccount = new NiiWooAccount();
-
-    @Setter
-    @Getter
-    public static class NiiWooAccount {
-        //private Long redPacketsUserId;     //你我金融存管红包用户
-        //private Long platformFeeUserId;    //你我金融手续费用户
-        //private String redPacketsAccountId; // 你我金融红包账户id
-        //private String platformFeeAccountId;// 你我金融平台账户id
-        private String guaranteeUserId;//上海存管（你我金融担保用户userId）
-
-    }
 
 }

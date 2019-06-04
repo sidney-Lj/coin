@@ -1,8 +1,12 @@
-package com.sidney.coin.fcoin.component.utils;
+package com.sidney.coin.utils;
 
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * @author: liaozuliang
+ * @date: 2019/3/6
+ */
 @Getter
 @Setter
 public class FormUploadFile {

@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.utils;
+package com.sidney.coin.helper;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -21,7 +21,6 @@ public abstract class FCoinGatewayRequest {
     /**
      * 服务端页面回跳中转URL,组件配置统一设置，无需手动设置该参数
      */
-    @Deprecated
     protected String redirectUrl;
     /**
      * 你我金融前端跳转地址，业务需手动设置该参数
