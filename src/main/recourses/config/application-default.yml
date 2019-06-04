@@ -17,16 +17,16 @@ server:
 
 fcoin:
   enabled: true
-    key-serial: 2
-    platform-no: "6000003630"
-    direct-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/service"
-    gateway-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/gateway"
-    download-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/download"
-    upload-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/upload"
-    notify-url: "https://test-civet-api.niiwoo.com/lanmao/notify"
-    callback-url: "https://test-civet-api.niiwoo.com/lanmao/callback"
-    sign-algorithm: "SHA1withRSA"
-    key-prefer: stringvalue
-    string-key:
-      own-privite-key: "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAM1bKpri5A/V6xXH56SoQf/JLxIZR/UjKzw9ujHJ5g72soQij63TMQ6GPRPBzBV94to2YClixflpHqmmyaRv/92kyOenVQGBrzw72FjcLRT6USKjoULhTo3zP96MP9+8x87+ae6e+4paH9M+JUG2i5p01gv/dCOHVcQQuj8u6eiXAgMBAAECgYBjUHbfZ2GiovNJml9WC6W3ncWs/BsH3BVZ0gSNdbZUgEy/iLNx/pRYEOXS+0PHFRW0MN36xfE2+PbCV45nf17/JRRRRK0qbndkfy+XLimDjyU6xJsHCrs750nz6MePiRFt1XQNMbsp0Ceg1eqxnwkcY8C3tGPDgRvzZc7iPtiUWQJBAPXgmvf0akbzCG+z38uPxzbgHlJ4B1meqQwdrNkc4ds5OBD+5S+j9BTz0Sy6U9qL0A5BTj4fLZ6VDvvjYjlU6qsCQQDVz34JFblsGmV7fClpZBzmg3DwCXf2xpPIEATyhWQdTX95CavyEsRGLY8WeDgxrIWFc0x/te8HVBuzkOAo8/nFAkAwuUicWD/zPVfvosp3cU997V204/o45TsEnqDRCWssYSNeItTR4wCMYmCSJ35UcZ5SJNjXcKA+q7Ujb0TYrZ4vAkAOtdjpDRqVynci+NbsjlvCrFZv3Wbojp8KS7fba7wInBViIX04CXyBi47lr93F5SXGmbkwrDbG3U2OnDAgATE1AkBe627Bqv9nR9NDZXXTECucY8mZeG15jLjOmfAR6AOv/fnUKNfYCazADIC6iPcJuoqYYIpoyPDFAvGSKQzI36Mp"
-      third-public-key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgOvnzghvIxEBId4/dhG3LharIb8KkPIS1wPJp42jhwR25SFM4RsD2O4kwv+4BiLjNvb7ZKzdkKkYAkEBRexIfvQKNnOwJU0XGGgg5KJsobP/Xh/lwrjPCs0mj3PPTuGQG6G3DnHCUhdlDpaEgA/lPHqdA6i0QNoKQgla9bKwfvzpsjgr0307a2129qJqWbW4q47ZHIBQsDeLrLoRQnkSnAM/RfhGzF3u45Bra1kb0szxmvBykvNI44QIQtLWC5pmg+XL4HJh2WgAnfnLrA5OFcm0gvsKLattmqS1oznIyeZHvTU2DP+hlVJPQPaa0jWYygufeuZp5XL7lbxPw1JdNwIDAQAB"
+  key-serial: 2
+  platform-no: "6000003630"
+  direct-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/service"
+  gateway-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/gateway"
+  download-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/download"
+  upload-url: "https://xwbk.lanmaoly.com/bha-neo-app/lanmaotech/upload"
+  notify-url: "https://test-civet-api.niiwoo.com/lanmao/notify"
+  callback-url: "https://test-civet-api.niiwoo.com/lanmao/callback"
+  sign-algorithm: "SHA1withRSA"
+  key-prefer: stringvalue
+  string-key:
+    own-privite-key: "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAM1bKpri5A/V6xXH56SoQf/JLxIZR/UjKzw9ujHJ5g72soQij63TMQ6GPRPBzBV94to2YClixflpHqmmyaRv/92kyOenVQGBrzw72FjcLRT6USKjoULhTo3zP96MP9+8x87+ae6e+4paH9M+JUG2i5p01gv/dCOHVcQQuj8u6eiXAgMBAAECgYBjUHbfZ2GiovNJml9WC6W3ncWs/BsH3BVZ0gSNdbZUgEy/iLNx/pRYEOXS+0PHFRW0MN36xfE2+PbCV45nf17/JRRRRK0qbndkfy+XLimDjyU6xJsHCrs750nz6MePiRFt1XQNMbsp0Ceg1eqxnwkcY8C3tGPDgRvzZc7iPtiUWQJBAPXgmvf0akbzCG+z38uPxzbgHlJ4B1meqQwdrNkc4ds5OBD+5S+j9BTz0Sy6U9qL0A5BTj4fLZ6VDvvjYjlU6qsCQQDVz34JFblsGmV7fClpZBzmg3DwCXf2xpPIEATyhWQdTX95CavyEsRGLY8WeDgxrIWFc0x/te8HVBuzkOAo8/nFAkAwuUicWD/zPVfvosp3cU997V204/o45TsEnqDRCWssYSNeItTR4wCMYmCSJ35UcZ5SJNjXcKA+q7Ujb0TYrZ4vAkAOtdjpDRqVynci+NbsjlvCrFZv3Wbojp8KS7fba7wInBViIX04CXyBi47lr93F5SXGmbkwrDbG3U2OnDAgATE1AkBe627Bqv9nR9NDZXXTECucY8mZeG15jLjOmfAR6AOv/fnUKNfYCazADIC6iPcJuoqYYIpoyPDFAvGSKQzI36Mp"
+    third-public-key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgOvnzghvIxEBId4/dhG3LharIb8KkPIS1wPJp42jhwR25SFM4RsD2O4kwv+4BiLjNvb7ZKzdkKkYAkEBRexIfvQKNnOwJU0XGGgg5KJsobP/Xh/lwrjPCs0mj3PPTuGQG6G3DnHCUhdlDpaEgA/lPHqdA6i0QNoKQgla9bKwfvzpsjgr0307a2129qJqWbW4q47ZHIBQsDeLrLoRQnkSnAM/RfhGzF3u45Bra1kb0szxmvBykvNI44QIQtLWC5pmg+XL4HJh2WgAnfnLrA5OFcm0gvsKLattmqS1oznIyeZHvTU2DP+hlVJPQPaa0jWYygufeuZp5XL7lbxPw1JdNwIDAQAB"

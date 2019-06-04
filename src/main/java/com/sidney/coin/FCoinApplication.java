@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin;
+package com.sidney.coin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
