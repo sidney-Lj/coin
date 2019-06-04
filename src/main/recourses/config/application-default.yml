@@ -1,6 +1,7 @@
 # node: 该配置文件仅用于开发环境
 server:
-  context-path: /fcoin
+  servlet:
+    context-path: /fcoin
   port: 8080
   tomcat:
     max-threads: 1000

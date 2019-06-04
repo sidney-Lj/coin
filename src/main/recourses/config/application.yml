@@ -4,7 +4,6 @@ spring:
   application:
     name: "fcoin"
   http:
-    encoding:
     charset: UTF-8
     force: true
     enabled: true
@@ -12,7 +11,7 @@ spring:
 # log file
 logging:
   context-name: ${spring.application.name}
-  path: "/app1/logs/fcoin/${spring.application.name}"
+  path: "/app1/logs/coin/${spring.application.name}"
   rolling-policy:
     max-file-size: 200MB
     max-history: 500
