@@ -1,0 +1,19 @@
+# note: 该配置文件用于与环境无关的公共配置
+# http://localhost:8080/fcoin/swagger-ui.html#/
+spring:
+  application:
+    name: "fcoin"
+  http:
+    encoding:
+    charset: UTF-8
+    force: true
+    enabled: true
+
+# log file
+logging:
+  context-name: ${spring.application.name}
+  path: "/app1/logs/fcoin/${spring.application.name}"
+  rolling-policy:
+    max-file-size: 200MB
+    max-history: 500
+    total-size-cap: 100GB
