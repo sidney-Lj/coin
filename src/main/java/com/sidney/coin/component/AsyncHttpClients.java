@@ -54,20 +54,17 @@ public class AsyncHttpClients {
                 .setIoThreadCount(properties.getIoThreadCount() < 1 ? Runtime.getRuntime().availableProcessors() * 2 : properties.getIoThreadCount())
                 .build();
         TrustManager[] trustAllCerts = new TrustManager[]{new RelaxTrustManager()};
-        try {
-            SSLContext sslContext = SSLContext.getInstance("SSL");
-            sslContext.init(null, trustAllCerts, null);
+            //SSLContext sslContext = SSLContext.getInstance("SSL");
+            //sslContext.init(null, trustAllCerts, null);
             client = TracingHttpAsyncClientBuilder.create(httpTracing)
                     .setDefaultIOReactorConfig(config)
-                    .setSSLContext(sslContext)
+                    //.setSSLContext(sslContext)
                     .setSSLHostnameVerifier((urlHostName, sslSession) -> true)
                     .setMaxConnPerRoute(properties.getMaxConnPerRoute())
                     .setMaxConnTotal(properties.getMaxConnTotal())
                     .build();
             client.start();
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-            throw new RuntimeException("start up CloseableHttpAsyncClient error", e);
-        }
+
     }
 
     public void destroy() throws IOException {
@@ -132,30 +129,6 @@ public class AsyncHttpClients {
      */
     public Future<HttpResponse> fileUploadPost(String url, Map<String, Object> params, Map<String, byte[]> files, Map<String, String> fileNames, FutureCallback<HttpResponse> callback) {
         HttpPost httpPost = new HttpPost(url);
-        /*
-        MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create().setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-
-
-
-        if (params != null && params.size() > 0) {
-            for (Map.Entry<String, Object> entry : params.entrySet()) {
-                if (entry.getValue() == null) {
-                    continue;
-                }
-                multipartEntityBuilder.addPart(entry.getKey(), new StringBody(entry.getValue().toString(), ContentType.create("text/plain", Consts.UTF_8)));
-            }
-        }
-        if (files != null && files.size() > 0) {
-            for (Map.Entry<String, byte[]> entry : files.entrySet()) {
-                if (entry.getValue() == null) {
-                    continue;
-                }
-                multipartEntityBuilder.addBinaryBody(entry.getKey(), entry.getValue(),ContentType.APPLICATION_OCTET_STREAM.withCharset("UTF-8"), fileNames.get(entry.getKey()));
-            }
-        }
-        HttpEntity reqEntity=multipartEntityBuilder.build();
-
-        */
 
         FacePlusMultipartEntityBuilder builder = FacePlusMultipartEntityBuilder.create();
         if (params != null && params.size() > 0) {

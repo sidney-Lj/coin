@@ -12,7 +12,7 @@ public class AsyncHttpClientProperties {
 
     private boolean enabled = true;
     private int ioThreadCount = Runtime.getRuntime().availableProcessors() * 2;
-    private int connectTimeOut = 60000;
+    private int connectTimeOut = 600000;
     private int soTimeout = 0;
     private int maxConnPerRoute = 100;
     private int maxConnTotal = 300;
