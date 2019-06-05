@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/coin.iml" filepath="$PROJECT_DIR$/.idea/coin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fcoin.iml" filepath="$PROJECT_DIR$/fcoin.iml" />
     </modules>
   </component>
 </project>
