@@ -1,4 +1,4 @@
-package com.sidney.coin.fcoin.component.enums;
+package com.sidney.coin.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

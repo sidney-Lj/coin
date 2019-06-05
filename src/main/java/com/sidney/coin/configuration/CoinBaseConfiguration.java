@@ -14,7 +14,6 @@ import com.sidney.coin.helper.ReflectHelper;
 import com.sidney.coin.logstash.StashMessageWriter;
 import com.sidney.coin.properties.AsyncHttpClientProperties;
 import com.sidney.coin.properties.LoggingProperties;
-import com.sidney.coin.properties.PrivacyMaskProperties;
 import com.sidney.coin.trace.StashTraceSender;
 import net.logstash.logback.appender.LogstashTcpSocketAppender;
 import org.slf4j.Logger;
@@ -42,7 +41,7 @@ import java.util.List;
 
 @Configuration
 @EnableAspectJAutoProxy(exposeProxy = true)
-@EnableConfigurationProperties({AsyncHttpClientProperties.class, PrivacyMaskProperties.class, LoggingProperties.class})
+@EnableConfigurationProperties({AsyncHttpClientProperties.class, LoggingProperties.class})
 public class CoinBaseConfiguration implements ApplicationListener<ApplicationReadyEvent>, EnvironmentPostProcessor, EnvironmentAware {
     private static final Logger logger = LoggerFactory.getLogger(CoinBaseConfiguration.class);
     private Environment environment;
@@ -51,8 +50,6 @@ public class CoinBaseConfiguration implements ApplicationListener<ApplicationRea
     private LoggingProperties loggingProperties;
     @Autowired
     private AsyncHttpClientProperties asyncHttpClientProperties;
-    @Autowired
-    private PrivacyMaskProperties privacyMaskProperties;
 
     @Override
     public void setEnvironment(Environment environment) {

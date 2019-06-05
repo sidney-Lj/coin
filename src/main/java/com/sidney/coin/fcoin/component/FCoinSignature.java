@@ -1,5 +1,6 @@
 package com.sidney.coin.fcoin.component;
 
+import com.sidney.coin.component.RSASignature;
 import com.sidney.coin.properties.RSASignatureProperties;
 
 public class FCoinSignature extends RSASignature {

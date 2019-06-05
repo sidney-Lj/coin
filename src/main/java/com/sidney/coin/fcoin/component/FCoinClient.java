@@ -5,16 +5,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.ValueFilter;
 import com.sidney.coin.component.AsyncHttpClients;
+import com.sidney.coin.component.RSASignature;
 import com.sidney.coin.fcoin.component.properties.FCoinProperties;
-import com.sidney.coin.fcoin.component.enums.FCoinGatewayServiceNameEnum;
 import com.sidney.coin.fcoin.component.enums.FCoinPublicServiceNameEnum;
 import com.sidney.coin.fcoin.component.enums.FCoinUploadServiceNameEnum;
 import com.sidney.coin.fcoin.component.exception.FcoinException;
-import com.sidney.coin.fcoin.component.exception.VerifyFailedException;
+import com.sidney.coin.exception.VerifyFailedException;
 import com.sidney.coin.fcoin.component.request.*;
-import com.sidney.coin.fcoin.component.response.FCoinGatewayResponse;
 import com.sidney.coin.fcoin.component.response.FCoinGetResponse;
-import com.sidney.coin.fcoin.component.serializer.Number2StringFilter;
+import com.sidney.coin.serializer.Number2StringFilter;
 import com.sidney.coin.utils.FormUploadFile;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,7 +30,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 public class FCoinClient {
     private static final Logger logger = LoggerFactory.getLogger(FCoinClient.class);
